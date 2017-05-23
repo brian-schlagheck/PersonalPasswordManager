@@ -49,7 +49,7 @@ namespace SecurePassPal
             return loginInfo;
         }
 
-        private string EncryptPassword(string password)
+        public string EncryptPassword(string password)
         {
             using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
             {
@@ -59,7 +59,7 @@ namespace SecurePassPal
             }
         }
 
-        private void ValidateCredentials(string userName, string correctUserName, string password, string correctEncryptedPassword)
+        public void ValidateCredentials(string userName, string correctUserName, string password, string correctEncryptedPassword)
         {
             if (password == correctEncryptedPassword && userName == correctUserName)
             {
@@ -71,6 +71,12 @@ namespace SecurePassPal
             {
                 MessageBox.Show("Incorrect Credentials - Please Try Again");
             }
+        }
+
+        private void BtnCreateAccount_Click(object sender, EventArgs e)
+        {
+            var accountCreationForm = new AccountCreation();
+            accountCreationForm.Show();
         }
     }
 }

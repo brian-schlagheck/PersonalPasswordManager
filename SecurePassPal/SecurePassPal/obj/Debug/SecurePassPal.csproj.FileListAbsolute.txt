@@ -9,3 +9,4 @@ C:\Users\Brian\Source\Repos\personal-password\SecurePassPal\SecurePassPal\obj\De
 C:\Users\Brian\Source\Repos\personal-password\SecurePassPal\SecurePassPal\obj\Debug\SecurePassPal.exe
 C:\Users\Brian\Source\Repos\personal-password\SecurePassPal\SecurePassPal\obj\Debug\SecurePassPal.pdb
 C:\Users\Brian\Source\Repos\personal-password\SecurePassPal\SecurePassPal\obj\Debug\SecurePassPal.PasswordManager.resources
+C:\Users\Brian\Source\Repos\personal-password\SecurePassPal\SecurePassPal\obj\Debug\SecurePassPal.AccountCreation.resources
