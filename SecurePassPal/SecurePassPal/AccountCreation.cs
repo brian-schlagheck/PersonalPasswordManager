@@ -13,6 +13,7 @@ namespace SecurePassPal
     public partial class AccountCreation : Form
     {
         private Login _login = new Login();
+        private GenericFunctionHelper _genericFunctionHelper = new GenericFunctionHelper();
 
         public AccountCreation()
         {
@@ -22,8 +23,8 @@ namespace SecurePassPal
         public void BtnCreateAccount_Click(object sender, EventArgs e)
         {
             string userName = TxtEnterUserName.Text;
-            string password = _login.EncryptPassword(TxtEnterPassword.Text);
-            string confirmPassword = _login.EncryptPassword(TxtConfirmPassword.Text);
+            string password = _genericFunctionHelper.EncryptPassword(TxtEnterPassword.Text);
+            string confirmPassword = _genericFunctionHelper.EncryptPassword(TxtConfirmPassword.Text);
             ValidatePasswords(password, confirmPassword, userName);
         }
 
@@ -31,9 +32,7 @@ namespace SecurePassPal
         {
             if (password == confirmPassword && !string.IsNullOrEmpty(userName))
             {
-                string fileLocation = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                string fileName = "\\SecurePassPal.txt";
-                string fullFileName = fileLocation + fileName;
+                string fullFileName = _genericFunctionHelper.GetFullFileLocation();
                 string content = userName + "," + password;
                 System.IO.File.WriteAllText(fullFileName, content);
                 this.Hide();

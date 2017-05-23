@@ -28,34 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.BtnDeleteRecords = new System.Windows.Forms.Button();
+            this.BtnSaveProgress = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // dataGridView1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Test";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(25, 22);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(866, 543);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // BtnDeleteRecords
+            // 
+            this.BtnDeleteRecords.Location = new System.Drawing.Point(709, 600);
+            this.BtnDeleteRecords.Name = "BtnDeleteRecords";
+            this.BtnDeleteRecords.Size = new System.Drawing.Size(182, 23);
+            this.BtnDeleteRecords.TabIndex = 2;
+            this.BtnDeleteRecords.Text = "Delete Selected Records";
+            this.BtnDeleteRecords.UseVisualStyleBackColor = true;
+            this.BtnDeleteRecords.Click += new System.EventHandler(this.BtnDeleteRecords_Click);
+            // 
+            // BtnSaveProgress
+            // 
+            this.BtnSaveProgress.Location = new System.Drawing.Point(535, 600);
+            this.BtnSaveProgress.Name = "BtnSaveProgress";
+            this.BtnSaveProgress.Size = new System.Drawing.Size(168, 23);
+            this.BtnSaveProgress.TabIndex = 3;
+            this.BtnSaveProgress.Text = "Save Progress";
+            this.BtnSaveProgress.UseVisualStyleBackColor = true;
+            this.BtnSaveProgress.Click += new System.EventHandler(this.BtnSaveProgress_Click);
             // 
             // PasswordManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 781);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(932, 643);
+            this.Controls.Add(this.BtnSaveProgress);
+            this.Controls.Add(this.BtnDeleteRecords);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "PasswordManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PasswordManager";
+            this.Load += new System.EventHandler(this.PasswordManager_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button BtnDeleteRecords;
+        private System.Windows.Forms.Button BtnSaveProgress;
     }
 }

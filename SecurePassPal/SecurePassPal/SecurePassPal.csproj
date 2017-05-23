@@ -52,6 +52,7 @@
     <Compile Include="AccountCreation.Designer.cs">
       <DependentUpon>AccountCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="GenericFunctionHelper.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
