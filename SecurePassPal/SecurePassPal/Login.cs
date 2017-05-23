@@ -21,5 +21,10 @@ namespace SecurePassPal
         {
 
         }
+
+        static bool CheckLoginCredentials(string loginString)
+        {
+            return false;
+        }
     }
 }
