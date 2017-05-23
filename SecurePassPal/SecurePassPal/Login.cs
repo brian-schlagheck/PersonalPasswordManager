@@ -29,19 +29,27 @@ namespace SecurePassPal
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            var x = ReadFile();
+            var loginInformation = ReadFile();
+            var correctUserName = loginInformation[0];
+            var correctEncryptedPassword = loginInformation[1];
             var userName = TxtUserName.Text;
             var passWord = TxtPassword.Text;
         }
 
     
-        private string ReadFile()
+        private string[] ReadFile()
         {
             string fileLocation = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string fileName = "\\SecurePassPal";
+            string fileName = "\\SecurePassPal.txt";
             string fullFileName = fileLocation + fileName;
-            var chars = System.IO.File.ReadAllText(fullFileName);
-            return chars;
+            var loginInformation = System.IO.File.ReadAllText(fullFileName);
+            var loginInfo = loginInformation.Split(',');
+            return loginInfo;
+        }
+
+        private string EncryptPassWord()
+        {
+            return "";
         }
     }
 }
