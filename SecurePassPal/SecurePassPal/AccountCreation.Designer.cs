@@ -110,6 +110,7 @@
             this.Controls.Add(this.TxtEnterPassword);
             this.Controls.Add(this.TxtEnterUserName);
             this.Name = "AccountCreation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccountCreation";
             this.ResumeLayout(false);
             this.PerformLayout();
