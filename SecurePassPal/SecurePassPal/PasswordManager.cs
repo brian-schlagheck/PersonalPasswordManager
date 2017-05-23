@@ -45,7 +45,7 @@ namespace SecurePassPal
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridView1.SelectAll();
             DataObject dataObject = dataGridView1.GetClipboardContent();
-            string filePath = _genericFunctionHelper.GetFullFileLocationTest();
+            string filePath = _genericFunctionHelper.GetFullFileLocation();
             string[] previousFileText = _genericFunctionHelper.ReadFile();
             List<string> finalCSVList = _genericFunctionHelper.RetainLoginInfo(previousFileText);
             var stringPasswordInfo = dataObject.GetText(TextDataFormat.CommaSeparatedValue);
@@ -53,7 +53,7 @@ namespace SecurePassPal
             string finalCSVText = "";
             foreach (var newVal in arrayPasswordInfo)
             {
-                finalCSVList.Add(newVal + ",");
+                finalCSVList.Add(newVal);
             }
             foreach (var val in finalCSVList)
             {
@@ -63,6 +63,7 @@ namespace SecurePassPal
             }
             finalCSVText.Trim();
             File.WriteAllText(filePath, finalCSVText);
+
         }
     }
     
