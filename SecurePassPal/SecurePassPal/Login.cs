@@ -26,5 +26,22 @@ namespace SecurePassPal
         {
             return false;
         }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            var x = ReadFile();
+            var userName = TxtUserName.Text;
+            var passWord = TxtPassword.Text;
+        }
+
+    
+        private string ReadFile()
+        {
+            string fileLocation = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string fileName = "\\SecurePassPal";
+            string fullFileName = fileLocation + fileName;
+            var chars = System.IO.File.ReadAllText(fullFileName);
+            return chars;
+        }
     }
 }

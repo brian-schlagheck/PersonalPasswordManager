@@ -57,6 +57,7 @@
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(292, 20);
             this.TxtPassword.TabIndex = 2;
+            this.TxtPassword.UseSystemPasswordChar = true;
             // 
             // LblPassword
             // 
@@ -75,6 +76,7 @@
             this.BtnLogin.TabIndex = 4;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // Login
             // 
