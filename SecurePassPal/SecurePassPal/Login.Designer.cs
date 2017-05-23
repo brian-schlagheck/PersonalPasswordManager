@@ -38,7 +38,7 @@
             // LblUserName
             // 
             this.LblUserName.AutoSize = true;
-            this.LblUserName.Location = new System.Drawing.Point(25, 67);
+            this.LblUserName.Location = new System.Drawing.Point(25, 28);
             this.LblUserName.Name = "LblUserName";
             this.LblUserName.Size = new System.Drawing.Size(66, 13);
             this.LblUserName.TabIndex = 0;
@@ -46,23 +46,23 @@
             // 
             // TxtUserName
             // 
-            this.TxtUserName.Location = new System.Drawing.Point(122, 67);
+            this.TxtUserName.Location = new System.Drawing.Point(122, 28);
             this.TxtUserName.Name = "TxtUserName";
-            this.TxtUserName.Size = new System.Drawing.Size(292, 20);
+            this.TxtUserName.Size = new System.Drawing.Size(163, 20);
             this.TxtUserName.TabIndex = 1;
             // 
             // TxtPassword
             // 
-            this.TxtPassword.Location = new System.Drawing.Point(122, 118);
+            this.TxtPassword.Location = new System.Drawing.Point(122, 56);
             this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(292, 20);
+            this.TxtPassword.Size = new System.Drawing.Size(163, 20);
             this.TxtPassword.TabIndex = 2;
             this.TxtPassword.UseSystemPasswordChar = true;
             // 
             // LblPassword
             // 
             this.LblPassword.AutoSize = true;
-            this.LblPassword.Location = new System.Drawing.Point(28, 118);
+            this.LblPassword.Location = new System.Drawing.Point(25, 56);
             this.LblPassword.Name = "LblPassword";
             this.LblPassword.Size = new System.Drawing.Size(59, 13);
             this.LblPassword.TabIndex = 3;
@@ -70,7 +70,7 @@
             // 
             // BtnLogin
             // 
-            this.BtnLogin.Location = new System.Drawing.Point(163, 241);
+            this.BtnLogin.Location = new System.Drawing.Point(122, 82);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(163, 23);
             this.BtnLogin.TabIndex = 4;
@@ -82,13 +82,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 305);
+            this.ClientSize = new System.Drawing.Size(323, 118);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.LblPassword);
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.TxtUserName);
             this.Controls.Add(this.LblUserName);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SecurePassPal - Login";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
