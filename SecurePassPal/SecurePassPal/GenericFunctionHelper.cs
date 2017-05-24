@@ -38,6 +38,7 @@ namespace SecurePassPal
 
         public string[] ReadFile()
         {
+
             string fullFileName = GetFullFileLocation();
             var loginInformation = System.IO.File.ReadAllText(fullFileName);
             var loginInfo = loginInformation.Trim().Split(',');
@@ -50,6 +51,16 @@ namespace SecurePassPal
             keepData.Add(previousFileText[0]);
             keepData.Add(previousFileText[1]);
             return keepData;
+        }
+
+        public List<string> ConvertStringArrayToList(string[] stringArray)
+        {
+            List<string> returnList = new List<string>();
+            foreach (var val in stringArray)
+            {
+                returnList.Add(val);
+            }
+            return returnList;
         }
     }
 }

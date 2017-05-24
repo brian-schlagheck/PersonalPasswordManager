@@ -27,17 +27,31 @@ namespace SecurePassPal
             dt.Columns.Add("User Name/Email", typeof(string));
             dt.Columns.Add("Password", typeof(string));
 
-            dt.Rows.Add("1", "2", "3");
+            string[] previousFileText = _genericFunctionHelper.ReadFile();
+
+            for (int i = 2; i < previousFileText.Length - 4; i += 3)
+            {
+                dt.Rows.Add(previousFileText[i], previousFileText[i + 1], previousFileText[i+2]);
+            }
+
             dataGridView1.DataSource = dt;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void BtnDeleteRecords_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
+            try
             {
-                dataGridView1.Rows.RemoveAt(item.Index);
+                foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
+                {
+                    dataGridView1.Rows.RemoveAt(item.Index);
+                }
             }
+            catch
+            {
+                MessageBox.Show("Can't delete the uncommited (*) row");
+            }
+
         }
 
         private void BtnSaveProgress_Click(object sender, EventArgs e)
@@ -49,6 +63,7 @@ namespace SecurePassPal
             string[] previousFileText = _genericFunctionHelper.ReadFile();
             List<string> finalCSVList = _genericFunctionHelper.RetainLoginInfo(previousFileText);
             var stringPasswordInfo = dataObject.GetText(TextDataFormat.CommaSeparatedValue);
+            stringPasswordInfo = stringPasswordInfo.Replace(System.Environment.NewLine, ",");
             var arrayPasswordInfo = stringPasswordInfo.Trim().Split(',');
             string finalCSVText = "";
             foreach (var newVal in arrayPasswordInfo)
@@ -62,6 +77,7 @@ namespace SecurePassPal
 
             }
             finalCSVText.Trim();
+            finalCSVText.Replace(System.Environment.NewLine, ",");
             File.WriteAllText(filePath, finalCSVText);
 
         }

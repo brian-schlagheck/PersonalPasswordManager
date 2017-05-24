@@ -32,12 +32,21 @@ namespace SecurePassPal
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            var loginInformation = _genericFunctionHelper.ReadFile();
-            var correctUserName = loginInformation[0];
-            var correctEncryptedPassword = loginInformation[1];
-            var userName = TxtUserName.Text;
-            var password = _genericFunctionHelper.EncryptPassword(TxtPassword.Text);
-            ValidateCredentials(userName, correctUserName, password, correctEncryptedPassword);
+            string[] loginInformation = new string[] { };
+            try
+            {
+                loginInformation = _genericFunctionHelper.ReadFile();
+                var correctUserName = loginInformation[0];
+                var correctEncryptedPassword = loginInformation[1];
+                var userName = TxtUserName.Text;
+                var password = _genericFunctionHelper.EncryptPassword(TxtPassword.Text);
+                ValidateCredentials(userName, correctUserName, password, correctEncryptedPassword);
+            }
+            catch
+            {
+                MessageBox.Show("Account has not been created, or has been moved. Please move it back or Create an Account below");
+            }
+            
         }
 
     
