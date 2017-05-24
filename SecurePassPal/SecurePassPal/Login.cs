@@ -18,6 +18,7 @@ namespace SecurePassPal
         public Login()
         {
             InitializeComponent();
+            this.AcceptButton = BtnLogin;
         }
 
         private void Form1_Load(object sender, EventArgs e)

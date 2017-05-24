@@ -67,6 +67,15 @@ namespace SecurePassPal
 
         public string EncryptInternalPassword(string password)
         {
+            var passLength = password.Length;
+            if (passLength > 0)
+            {
+                if (password[passLength - 1].ToString() == "=")
+                {
+                    return password;
+                }
+            }
+            
             byte[] data = UTF8Encoding.UTF8.GetBytes(password);
             using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
             {

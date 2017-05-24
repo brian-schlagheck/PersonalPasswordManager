@@ -18,6 +18,7 @@ namespace SecurePassPal
         public AccountCreation()
         {
             InitializeComponent();
+            this.AcceptButton = BtnCreateAccount;
         }
 
         public void BtnCreateAccount_Click(object sender, EventArgs e)
@@ -41,6 +42,11 @@ namespace SecurePassPal
             {
                 MessageBox.Show("Passwords do not match, or Username was left empty");
             }
+        }
+
+        private void AccountCreation_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

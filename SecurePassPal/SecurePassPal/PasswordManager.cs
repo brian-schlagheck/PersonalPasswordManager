@@ -73,7 +73,12 @@ namespace SecurePassPal
                 {
                     var encryptedVal = _genericFunctionHelper.EncryptInternalPassword(newVal);
                     finalCSVList.Add(encryptedVal);
-                    counter = 1;
+                    counter = 0;
+                }
+                else if (counter == 2)
+                {
+                    var encryptedVal = _genericFunctionHelper.EncryptInternalPassword(newVal);
+                    finalCSVList.Add(encryptedVal);
                 }
                 else
                 {
@@ -95,8 +100,15 @@ namespace SecurePassPal
 
         private void BtnDecryptPassword_Click(object sender, EventArgs e)
         {
-            var decryptedPassword = _genericFunctionHelper.DecryptInternalPassword(dataGridView1.CurrentCell.Value.ToString());
-            TxtDecryptedPassword.Text = decryptedPassword;
+            try
+            {
+                var decryptedPassword = _genericFunctionHelper.DecryptInternalPassword(dataGridView1.CurrentCell.Value.ToString());
+                TxtDecryptedPassword.Text = decryptedPassword;
+            }
+            catch
+            {
+                MessageBox.Show("Please just select 1 cell");
+            }
         }
     }
     
