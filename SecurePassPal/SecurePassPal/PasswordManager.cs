@@ -66,9 +66,20 @@ namespace SecurePassPal
             stringPasswordInfo = stringPasswordInfo.Replace(System.Environment.NewLine, ",");
             var arrayPasswordInfo = stringPasswordInfo.Trim().Split(',');
             string finalCSVText = "";
+            var counter = 1;
             foreach (var newVal in arrayPasswordInfo)
             {
-                finalCSVList.Add(newVal);
+                if (counter == 3)
+                {
+                    var encryptedVal = _genericFunctionHelper.EncryptInternalPassword(newVal);
+                    finalCSVList.Add(encryptedVal);
+                    counter = 1;
+                }
+                else
+                {
+                    finalCSVList.Add(newVal);
+                }
+                counter += 1;
             }
             foreach (var val in finalCSVList)
             {
@@ -80,6 +91,12 @@ namespace SecurePassPal
             finalCSVText.Replace(System.Environment.NewLine, ",");
             File.WriteAllText(filePath, finalCSVText);
 
+        }
+
+        private void BtnDecryptPassword_Click(object sender, EventArgs e)
+        {
+            var decryptedPassword = _genericFunctionHelper.DecryptInternalPassword(dataGridView1.CurrentCell.Value.ToString());
+            TxtDecryptedPassword.Text = decryptedPassword;
         }
     }
     
