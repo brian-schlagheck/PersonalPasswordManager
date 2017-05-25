@@ -95,6 +95,9 @@ namespace SecurePassPal
             finalCSVText.Trim();
             finalCSVText.Replace(System.Environment.NewLine, ",");
             File.WriteAllText(filePath, finalCSVText);
+            this.Dispose();
+            PasswordManager pm = new PasswordManager();
+            pm.Show();
 
         }
 

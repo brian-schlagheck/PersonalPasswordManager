@@ -10,7 +10,7 @@ namespace SecurePassPal
 {
     public class GenericFunctionHelper
     {
-        string hash = "f0xle@rn";
+        string hash = EncryptionConstants.HashCode;
 
         public string GetFullFileLocation()
         {
@@ -68,14 +68,11 @@ namespace SecurePassPal
         public string EncryptInternalPassword(string password)
         {
             var passLength = password.Length;
-            if (passLength > 0)
+            if (password.Contains(EncryptionConstants.Encrypt))
             {
-                if (password[passLength - 1].ToString() == "=")
-                {
-                    return password;
-                }
+                return password;
             }
-            
+
             byte[] data = UTF8Encoding.UTF8.GetBytes(password);
             using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
             {
@@ -85,13 +82,19 @@ namespace SecurePassPal
                     ICryptoTransform transform = tripDes.CreateEncryptor();
                     byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
                     password = Convert.ToBase64String(results, 0, results.Length);
-                    return password;
+                    var startString = EncryptionConstants.Encrypt;
+                    var newPassword = startString + password;
+                    return newPassword;
                 }
             }
         }
 
         public string DecryptInternalPassword(string password)
         {
+            if (password.Contains(EncryptionConstants.Encrypt))
+            {
+                password = password.Replace(EncryptionConstants.Encrypt, "");
+            }
             byte[] data = Convert.FromBase64String(password);
             using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
             {
